@@ -44,15 +44,12 @@ RUN chmod -R 777 /opt/conda
 RUN conda config --add channels conda-forge && \
     conda config --set channel_priority strict
 
-# Update conda to the latest version
-RUN conda update -n base -c defaults conda -y
-
 # Install Lume-Impact and fix the path in lume/base.py
 RUN conda install -y lume-impact && \
     sed -i "s|workdir = full_path(workdir)|workdir = tools.full_path(workdir)|g" /opt/conda/lib/python3.12/site-packages/lume/base.py
 
-# Install Impact-T with MPICH
-RUN conda install -c conda-forge "impact-t=*=mpi_mpich*" --verbose -y
+# Install Impact-T
+RUN conda install -y impact-t=*=mpi_openmpi*
 
 # Install additional packages
 RUN conda install -y jupyter jupyterlab scipy numpy matplotlib pillow pandas xopt distgen h5py openpmd-beamphysics pytao pmd_beamphysics pyyaml pickle
