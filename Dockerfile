@@ -30,30 +30,50 @@ ENV PATH=/opt/conda/bin:$PATH
 # Ensure conda has proper permissions
 RUN chmod -R 777 /opt/conda
 
+
+# Set environment variables
+ENV CONDA_AUTO_UPDATE_CONDA=false
+
+# Install SSL dependencies
+RUN apt-get update && apt-get install -y \
+    libssl-dev \
+    libffi-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set architecture
+RUN conda config --set subdir linux-64
+
+
 # Configure conda channels and set architecture
 RUN conda config --add channels conda-forge && \
-    conda config --set channel_priority strict && \
-    conda config --set subdir linux-64
-
-# Update conda to the latest version and use the classic solver
-RUN conda update -n base -c defaults conda -y && \
-    conda config --set solver classic
-
-# Create a new conda environment named 'simulation' and install packages
-RUN conda create -n simulation -y && \
-    CONDA_NO_PLUGINS=true conda install -n simulation -c conda-forge impact-t=2.3.1=mpi_openmpi_hce253eb_0 && \
-    CONDA_NO_PLUGINS=true conda install -n simulation -y lume-impact jupyter jupyterlab scipy numpy matplotlib pillow pandas xopt distgen h5py openpmd-beamphysics pytao pmd_beamphysics pyyaml pickle
-
-# Fix the path in lume/base.py within the 'simulation' environment
-RUN sed -i "s|workdir = full_path(workdir)|workdir = tools.full_path(workdir)|g" /opt/conda/envs/simulation/lib/python3.12/site-packages/lume/base.py
-
-# Set environment variables to activate the 'simulation' environment by default
-ENV CONDA_DEFAULT_ENV=simulation
-ENV PATH=/opt/conda/envs/simulation/bin:$PATH
-RUN echo "source activate simulation" > ~/.bashrc
+    conda config --set channel_priority strict 
+# Update conda and install lume-impact
+RUN conda update -n base -c defaults conda && \
+    conda install conda-forge::lume-impact -y --solver classic
 
 
+#RUN /opt/conda/bin/conda install conda-forge::lume-impact -y
+RUN  sed -i "s|workdir = full_path(workdir)|workdir = tools.full_path(workdir) |g" /opt/conda/lib/python3.12/site-packages/lume/base.py
 
+
+RUN conda search impact-t --channel conda-forge
+RUN /opt/conda/bin/conda install -c conda-forge impact-t
+RUN /opt/conda/bin/conda install -c conda-forge impact-t=*=mpi_openmpi*
+
+RUN /opt/conda/bin/conda install jupyter
+RUN /opt/conda/bin/conda install jupyterlab
+
+
+RUN /opt/conda/bin/conda install scipy
+RUN /opt/conda/bin/conda install numpy
+RUN /opt/conda/bin/conda install matplotlib
+RUN /opt/conda/bin/conda install pillow
+RUN /opt/conda/bin/conda install pandas
+RUN /opt/conda/bin/conda install conda-forge::xopt
+
+RUN /opt/conda/bin/conda install conda-forge::distgen
+RUN /opt/conda/bin/conda install h5py
+RUN /opt/conda/bin/conda install conda-forge::openpmd-beamphysics
 # ------------------------------------------------------------
 # Copy Jupyter notebooks into the image
 # ------------------------------------------------------------
