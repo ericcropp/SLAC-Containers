@@ -52,7 +52,8 @@ RUN conda install -y lume-impact && \
     sed -i "s|workdir = full_path(workdir)|workdir = tools.full_path(workdir)|g" /opt/conda/lib/python3.12/site-packages/lume/base.py
 
 # Install Impact-T with MPICH
-RUN conda install -c conda-forge "impact-t=*=mpi_mpich*" --verbose -y
+RUN  conda search impact-t --channel conda-forge    
+#RUN conda install -c conda-forge "impact-t=*=mpi_mpich*" --verbose -y
 
 # Install additional packages
 RUN conda install -y jupyter jupyterlab scipy numpy matplotlib pillow pandas xopt distgen h5py openpmd-beamphysics pytao pmd_beamphysics pyyaml pickle
