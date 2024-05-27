@@ -14,8 +14,7 @@ RUN apt-get update && \
         wget \
         openmpi-bin \
         libopenmpi-dev \
-        libssl-dev \
-        libcrypto++-dev && \
+        libssl-dev && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Install mpi4py with pip
@@ -31,8 +30,6 @@ ENV PATH=/opt/conda/bin:$PATH
 RUN chmod -R 777 /opt/conda
 
 
-# Set architecture
-RUN conda config --set subdir linux-64
 
 # Configure conda channels and set architecture
 RUN conda config --add channels conda-forge && \

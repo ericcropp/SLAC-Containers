@@ -1,34 +1,22 @@
 FROM ubuntu:latest
 WORKDIR /opt
 
-RUN \
-    apt-get update        && \
-    apt-get install --yes    \
-        build-essential      \
-        gfortran             \
-        python3-dev          \
-        python3-pip          \
-        wget              && \
-    apt-get clean all
 
-ARG mpich=4.0.2
-ARG mpich_prefix=mpich-$mpich
+# Install necessary packages and OpenMPI
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        build-essential \
+        gfortran \
+        python3-dev \
+        python3-pip \
+        wget \
+        openmpi-bin \
+        libopenmpi-dev \
+        libssl-dev && \
+    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN \
-    wget https://www.mpich.org/static/downloads/$mpich/$mpich_prefix.tar.gz && \
-    tar xvzf $mpich_prefix.tar.gz                                           && \
-    cd $mpich_prefix                                                        && \
-    ./configure                                                             && \
-    make -j 4                                                               && \
-    make install                                                            && \
-    make clean                                                              && \
-    cd ..                                                                   && \
-    rm -rf $mpich_prefix
-
-RUN /sbin/ldconfig
-
+# Install mpi4py with pip
 RUN python3 -m pip install mpi4py
-
 
 FROM docker.io/continuumio/miniconda3:latest
 
@@ -42,17 +30,39 @@ RUN  sed -i "s|workdir = full_path(workdir)|workdir = tools.full_path(workdir) |
 RUN /opt/conda/bin/conda install -c conda-forge impact-t
 RUN /opt/conda/bin/conda install -c conda-forge impact-t=*=mpi_openmpi*
 
-RUN /opt/conda/bin/conda install jupyter
-RUN /opt/conda/bin/conda install jupyterlab
+RUN /opt/conda/bin/conda install -y \
+    jupyter \
+    jupyterlab \
+    scipy \
+    numpy \
+    matplotlib \
+    pillow \
+    pandas \
+    conda-forge::xopt \
+    conda-forge::distgen \
+    h5py \
+    pytao \
+    conda-forge::openpmd-beamphysics && \
+    /opt/conda/bin/conda clean -afy
 
 
-RUN /opt/conda/bin/conda install scipy
-RUN /opt/conda/bin/conda install numpy
-RUN /opt/conda/bin/conda install matplotlib
-RUN /opt/conda/bin/conda install pillow
-RUN /opt/conda/bin/conda install pandas
-RUN /opt/conda/bin/conda install conda-forge::xopt
 
-RUN /opt/conda/bin/conda install conda-forge::distgen
-RUN /opt/conda/bin/conda install h5py
-RUN /opt/conda/bin/conda install conda-forge::openpmd-beamphysics
+# Copy Jupyter notebooks into the image
+COPY notebooks /opt/notebooks
+#copy facet2 lattice over
+COPY facet2-lattice /opt/notebooks/facet2-lattice
+
+ENV FACET2_LATTICE=/opt/notebooks/facet2-lattice
+
+RUN mkdir /sdf
+
+# Expose port for JupyterLab
+EXPOSE 8888
+EXPOSE 8889
+
+EXPOSE 5555
+EXPOSE 5556
+
+
+# Default command to run JupyterLab
+CMD ["jupyter", "lab", "--ip=0.0.0.0", "--no-browser", "--allow-root", "--notebook-dir=/opt/notebooks","--port=5555"]
