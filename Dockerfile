@@ -13,6 +13,7 @@ RUN apt-get update && \
         openmpi-bin \
         libopenmpi-dev \
         libssl-dev && \
+        htop && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Install mpi4py with pip
