@@ -12,8 +12,9 @@ RUN apt-get update && \
         wget \
         openmpi-bin \
         libopenmpi-dev \
-        libssl-dev && \
-        htop && \
+        libssl-dev \
+        htop \
+        rsync && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Install mpi4py with pip
