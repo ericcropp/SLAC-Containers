@@ -34,4 +34,5 @@ jobs:
         cd /sdf/group/facet/sanjeev/containers
         rm -f impact-bmad_latest.sif
         singularity pull docker://slacact/impact-bmad
+        ls /sdf/group/facet/sanjeev/containers
         EOF
