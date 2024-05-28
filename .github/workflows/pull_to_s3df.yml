@@ -28,9 +28,6 @@ jobs:
         ssh iana
         sleep 10
         export APPTAINER_CACHEDIR=$SCRATCH/.apptainer
-        ls /sdf/home/s/sanjeev/.apptainer
-        rm -rf /sdf/home/s/sanjeev/.apptainer
-        ls /sdf/home/s/sanjeev/.apptainer
         cd /sdf/group/facet/sanjeev/containers
         rm -f impact-bmad_latest.sif
         singularity pull docker://slacact/impact-bmad
