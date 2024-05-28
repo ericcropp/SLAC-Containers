@@ -4,10 +4,13 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - '.github/workflows/**'
   pull_request:
     branches:
       - main
-
+    paths-ignore:
+      - '.github/workflows/**'
 jobs:
   build:
     runs-on: ubuntu-latest
