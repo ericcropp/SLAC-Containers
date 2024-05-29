@@ -31,6 +31,7 @@ RUN  sed -i "s|workdir = full_path(workdir)|workdir = tools.full_path(workdir) |
 
 RUN /opt/conda/bin/conda install -c conda-forge impact-t
 RUN /opt/conda/bin/conda install -c conda-forge impact-t=*=mpi_openmpi*
+RUN /opt/conda/bin/conda install -c conda-forge bmad
 
 RUN /opt/conda/bin/conda install -y \
     jupyter \
