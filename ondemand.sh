@@ -6,8 +6,8 @@ mkdir -p $HOME/impact_bmad_container_notebooks
 
 # Define the jupyter function to use Apptainer for executing Jupyter with necessary bindings and running mkdir and cp commands
 function jupyter() {
-apptainer exec -B /sdf,/fs,/sdf/scratch,/lscratch ${APPTAINER_IMAGE_PATH} bash -c "
+apptainer exec -B /usr,/sdf,/fs,/sdf/scratch,/lscratch ${APPTAINER_IMAGE_PATH} bash -c "
         mkdir -p ${NOTEBOOK_ROOT} &&
         cp -r /opt/notebooks/* ${NOTEBOOK_ROOT}/";
-  	apptainer exec -B /sdf,/fs,/sdf/scratch,/lscratch ${APPTAINER_IMAGE_PATH}  jupyter $@;
+  	apptainer exec -B /usr,/sdf,/fs,/sdf/scratch,/lscratch ${APPTAINER_IMAGE_PATH}  jupyter $@;
 }
