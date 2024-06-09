@@ -11,7 +11,7 @@ start:
         units: meV
         
 total_charge:
-    value: 2000
+    value: 1600
     units: pC
 
 xy_dist:
