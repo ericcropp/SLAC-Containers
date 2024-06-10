@@ -8,6 +8,6 @@ mkdir -p $HOME/impact_bmad_container_notebooks
 function jupyter() {
 apptainer exec -B /usr,/sdf,/fs,/sdf/scratch,/lscratch ${APPTAINER_IMAGE_PATH} bash -c "
         mkdir -p ${NOTEBOOK_ROOT} &&
-        cp -r /opt/notebooks/* ${NOTEBOOK_ROOT}/";
+        cp -rn /opt/notebooks/* ${NOTEBOOK_ROOT}/";
   	apptainer exec -B /usr,/sdf,/fs,/sdf/scratch,/lscratch ${APPTAINER_IMAGE_PATH}  jupyter $@;
 }
