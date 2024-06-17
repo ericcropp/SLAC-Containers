@@ -6,6 +6,8 @@ on:
       - main
     paths-ignore:
       - '.github/workflows/**'
+      - 'README.md'
+      - 'ondemand.sh'
   pull_request:
     branches:
       - main
