@@ -19,5 +19,26 @@ Included in this repository is a script that simplifies the process of deploying
 To run the Docker container on S3DF, execute the provided script with the necessary parameters. Instructions are on confluence ([here](https://confluence.slac.stanford.edu/x/HAGHGw))
 
 
+## Forking repo to create custom container for S3DF:
+1. edit docker file to change conda installed packages. Edit the code that looks like
+ ```RUN /opt/conda/bin/conda install -y \
+    jupyter \
+    jupyterlab \
+    scipy \
+    numpy \
+    matplotlib \
+    pillow \
+    pandas \
+    conda-forge::xopt \
+    conda-forge::distgen \
+    h5py \
+    pytao \
+    conda-forge::openpmd-beamphysics && \
+    /opt/conda/bin/conda clean -afy ```
+    
+
+    and other 
+
+
 ## Support
 For any issues or questions regarding the setup, execution, or other aspects of using this Docker image, please refer to the documentation provided [[here](https://confluence.slac.stanford.edu/x/HAGHGw)] or contact sanjeev@slac.stanford.edu.
