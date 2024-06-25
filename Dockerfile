@@ -17,8 +17,7 @@ RUN apt-get update && \
         rsync && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# Install mpi4py with pip
-RUN python3 -m pip install mpi4py
+
 
 FROM docker.io/continuumio/miniconda3:latest
 
@@ -49,7 +48,8 @@ RUN /opt/conda/bin/conda install -y \
     conda-forge::openpmd-beamphysics && \
     /opt/conda/bin/conda clean -afy
 
-
+# Install mpi4py with conda
+RUN conda install -c conda-forge mpi4py
 
 # Copy Jupyter notebooks into the image
 COPY notebooks /opt/notebooks
