@@ -8,6 +8,8 @@ on:
       - '.github/workflows/**'
       - 'README.md'
       - 'ondemand.sh'
+      - 'Dockerfile.NERSC'
+      - 'NERSC_notebooks'
   pull_request:
     branches:
       - main
