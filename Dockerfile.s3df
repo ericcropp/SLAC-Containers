@@ -48,6 +48,10 @@ RUN /opt/conda/bin/conda install -y \
     conda-forge::openpmd-beamphysics && \
     /opt/conda/bin/conda clean -afy
 
+# for mason stobbe
+RUN pip install Wake-T
+
+
 # Install mpi4py with conda
 RUN conda install -c conda-forge mpi4py
 
