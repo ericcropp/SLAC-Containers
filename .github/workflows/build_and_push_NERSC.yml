@@ -9,6 +9,7 @@ on:
       - 'README.md'
       - 'ondemand.sh'
       - 'Dockerfile.s3df'
+      - 'dockerfile.s3df'
       - 'notebooks'
   pull_request:
     branches:
