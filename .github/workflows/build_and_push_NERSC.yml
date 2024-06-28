@@ -8,9 +8,10 @@ on:
       - '.github/workflows/**'
       - 'README.md'
       - 'ondemand.sh'
-      - 'Dockerfile.s3df'
+      - 'Dockerfile.s3df  '
       - 'dockerfile.s3df'
-      - 'notebooks'
+      - './notebooks/**'
+      - 'impact_bmad_NERSC.sh'
   pull_request:
     branches:
       - main

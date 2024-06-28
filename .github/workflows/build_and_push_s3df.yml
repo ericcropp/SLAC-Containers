@@ -9,7 +9,8 @@ on:
       - 'README.md'
       - 'ondemand.sh'
       - 'Dockerfile.NERSC'
-      - './NERSC_notebooks'
+      - './NERSC_notebooks/**'
+      - 'impact_bmad_NERSC.sh'
   pull_request:
     branches:
       - main
