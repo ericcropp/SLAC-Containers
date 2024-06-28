@@ -75,11 +75,7 @@ ENV FACET2_LATTICE=/opt/notebooks/facet2-lattice
 RUN mkdir /sdf
 
 # Expose port for JupyterLab
-EXPOSE 8888
-EXPOSE 8889
-
-EXPOSE 5555
-EXPOSE 5556
+EXPOSE 8888 8889 5555 5556
 
 
 # Default command to run JupyterLab
