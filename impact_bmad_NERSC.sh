@@ -1,5 +1,7 @@
 #!/bin/bash
 
+chmod o+x $HOME
+
 echo "If the container fails to copy files to your home directory, then due to the behavior of our \$HOME filesystem metadata server,"
 echo "users will need to grant o+x permission for their top-level directory on \$HOME and other directories they wish to mount."
 echo "Please see our FAQ page for more details: https://docs.nersc.gov/development/containers/shifter/faq-troubleshooting/#mounting-directories-from-home."
@@ -17,7 +19,7 @@ shifterimg pull $IMAGE
 
 # Run the Shifter container and copy files
 echo "Running Shifter container and copying files..."
-shifter --image=$IMAGE --volume $HOME:/host-home bash -c "cp -rn /opt/notebooks /host-home/"
+shifter --image=$IMAGE --volume $TARGET_DIR:/host-home bash -c "cp -rn /opt/notebooks/* /host-home/"
 
 echo "Files have been successfully copied to $TARGET_DIR."
 
