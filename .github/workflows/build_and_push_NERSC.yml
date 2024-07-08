@@ -5,13 +5,13 @@ on:
     branches:
       - main
     paths-ignore:
-      - '.github/workflows/**'
-      - 'README.md'
-      - 'ondemand.sh'
-      - 'Dockerfile.s3df  '
-      - 'dockerfile.s3df'
-      - './notebooks/**'
-      - 'impact_bmad_NERSC.sh'
+        - '.github/workflows/**'
+        - 'README.md'
+        - 'ondemand.sh'
+        - 'Dockerfile.s3df'
+        - 'dockerfile.s3df'
+        - 'notebooks/**'
+        - 'impact_bmad_NERSC.sh'
   pull_request:
     branches:
       - main
