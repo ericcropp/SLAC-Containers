@@ -1,12 +1,15 @@
 !---Turns on some typical CSR parameters
 
+!set global_com%mp_threading_is_safe = T
+!set global_com%exit_on_error = T
+
 !set global track_type = single
 
 set global plot_on = false
 set global lattice_calc_on=false
 
 !---Turn on ISR fluctuations
-set bmad_com radiation_fluctuations_on = T
+set bmad_com radiation_fluctuations_on = F
 
 !---CSR---
 set space_charge_com beam_chamber_height = 0.024  ! 24 mm full height
