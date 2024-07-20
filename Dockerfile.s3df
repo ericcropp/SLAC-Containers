@@ -31,7 +31,7 @@ RUN  sed -i "s|workdir = full_path(workdir)|workdir = tools.full_path(workdir) |
 RUN /opt/conda/bin/conda install -c conda-forge impact-t
 RUN /opt/conda/bin/conda install -c conda-forge impact-t=*=mpi_openmpi*
 ENV CONDA_SOLVER=classic
-RUN /opt/conda/bin/conda install -c conda-forge "bmad>=20240718.0"
+RUN /opt/conda/bin/conda install -c conda-forge bmad
 
 RUN /opt/conda/bin/conda install -y \
     jupyter \
@@ -49,9 +49,9 @@ RUN /opt/conda/bin/conda install -y \
     /opt/conda/bin/conda clean -afy
 
 # for mason stobbe
-#RUN pip install Wake-T
+RUN pip install Wake-T
 # for nathan's files
-#RUN pip install bayesian-optimization 
+RUN pip install bayesian-optimization 
 
 
 # Install mpi4py with conda
