@@ -24,14 +24,14 @@ FROM docker.io/continuumio/miniconda3:latest
 ENV PATH=/opt/conda/bin:$PATH
 
 RUN chmod -R 777 /opt/conda
-RUN /opt/conda/bin/conda install -c conda-forge bmad
-RUN /opt/conda/bin/conda install conda-forge::lume-impact
+
+RUN /opt/conda/bin/conda install conda-forge::lume-impact=0.8.6  
 RUN  sed -i "s|workdir = full_path(workdir)|workdir = tools.full_path(workdir) |g" /opt/conda/lib/python3.12/site-packages/lume/base.py
 
 RUN /opt/conda/bin/conda install -c conda-forge impact-t
 RUN /opt/conda/bin/conda install -c conda-forge impact-t=*=mpi_openmpi*
 ENV CONDA_SOLVER=classic
-
+RUN /opt/conda/bin/conda install -c conda-forge bmad=20240402.1
 
 RUN /opt/conda/bin/conda install -y \
     jupyter \
@@ -41,7 +41,7 @@ RUN /opt/conda/bin/conda install -y \
     matplotlib \
     pillow \
     pandas \
-    conda-forge::xopt \
+    conda-forge::xopt=2.2.2 \
     conda-forge::distgen \
     h5py \
     pytao \
