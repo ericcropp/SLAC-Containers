@@ -29,8 +29,8 @@ jobs:
         sshpass -p "$SSH_PASSWORD" ssh iana
         sleep 15
         export APPTAINER_CACHEDIR=$SCRATCH/.apptainer
-        rm -rf APPTAINER_CACHEDIR
-        mkdir APPTAINER_CACHEDIR
+        rm -rf $SCRATCH/.apptainer
+        mkdir $SCRATCH/.apptainer
         cd /sdf/group/ad/beamphysics/cropp/containers
         rm -f impact-bmad_latest.sif
         singularity pull docker://ericcropp/impact-bmad
