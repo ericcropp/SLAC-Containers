@@ -35,7 +35,7 @@ RUN /opt/conda/bin/conda install -c conda-forge bmad
 
 RUN /opt/conda/bin/conda install -y \
     jupyter \
-    jupyterlab \
+    jupyterlab=4.2.3 \
     scipy \
     numpy \
     matplotlib \
