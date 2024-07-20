@@ -1,6 +1,6 @@
 
 # Set the environment variable for the Apptainer image path
-export APPTAINER_IMAGE_PATH=/sdf/group/facet/sanjeev/containers/impact-bmad_latest.sif
+export APPTAINER_IMAGE_PATH=/sdf/group/ad/beamphysics/cropp/containers/impact-bmad_latest.sif
 export NOTEBOOK_ROOT=$HOME/impact_bmad_container_notebooks
 mkdir -p $HOME/impact_bmad_container_notebooks
 
