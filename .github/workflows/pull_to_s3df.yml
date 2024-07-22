@@ -30,6 +30,7 @@ jobs:
         sleep 15
         export APPTAINER_CACHEDIR=$SCRATCH/.apptainer
         rm -rf $SCRATCH/.apptainer
+        rm -rf $SCRATCH/tmp*
         mkdir $SCRATCH/.apptainer
         cd /sdf/group/facet/sanjeev/containers
         rm -f impact-bmad_latest.sif
