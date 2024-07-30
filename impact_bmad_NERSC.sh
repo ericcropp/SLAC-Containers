@@ -28,10 +28,7 @@ echo "Files have been successfully copied to $TARGET_DIR."
 
 echo "\n\n---------------------------------------------------------\n\n"
 
-# Install Jupyter kernel
-podman-hpc $IMAGE \
-    /opt/conda/bin/python -m ipykernel install \
-    --prefix $HOME/.local --name env_impact_bmad --display-name Impact_Bmad_Container
+podman-hpc run $IMAGE /bin/bash -c "/opt/conda/bin/python -m ipykernel install --prefix $HOME/.local --name env_impact_bmad --display-name Impact_Bmad_Container"
 
 # Create the kernel.json file with the specified content
 KERNEL_DIR="$HOME/.local/share/jupyter/kernels/env_impact_bmad"
