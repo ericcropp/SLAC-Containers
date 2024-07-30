@@ -6,8 +6,8 @@ echo "If the container fails to copy files to your home directory, then due to t
 echo "users will need to grant o+x permission for their top-level directory on \$HOME and other directories they wish to mount."
 echo "Please see our FAQ page for more details: https://docs.nersc.gov/development/containers/shifter/faq-troubleshooting/#mounting-directories-from-home."
 
-# Define the Shifter image
-IMAGE="slacact/impact-bmad:nersc"
+# Define the podman image
+IMAGE="docker.io/slacact/impact-bmad:nersc"
 
 # Define the target directory in the user's home
 TARGET_DIR="$HOME/impact_bmad_container_notebooks"
