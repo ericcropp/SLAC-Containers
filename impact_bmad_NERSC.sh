@@ -36,7 +36,7 @@ mkdir -p $KERNEL_DIR
 cat <<EOT > $KERNEL_FILE
 {
   "argv": [
-    "shifter",
+    "podman-hpc",
     "--image=slacact/impact-bmad:nersc",
     "/opt/conda/bin/python",
     "-m",
