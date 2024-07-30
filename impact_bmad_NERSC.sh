@@ -19,7 +19,7 @@ podman-hpc pull $IMAGE
 
 # Run the Shifter container and copy files
 echo "Running podman container and copying files..."
-podman-hpc run --volume $TARGET_DIR:/host-home bash $IMAGE -c "cp -rn /opt/notebooks/* /host-home/"
+podman-hpc run -v $TARGET_DIR:/opt/copy $IMAGE -c "cp -rn /opt/notebooks/* /opt/copy"
 
 
 echo "\n\n---------------------------------------------------------\n\n"
