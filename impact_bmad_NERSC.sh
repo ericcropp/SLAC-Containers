@@ -13,18 +13,23 @@ IMAGE="slacact/impact-bmad:nersc"
 TARGET_DIR="$HOME/impact_bmad_container_notebooks"
 mkdir -p $TARGET_DIR
 
-# Pull the Shifter image
-echo "Pulling Shifter image $IMAGE..."
-shifterimg pull $IMAGE
+# Pull the podman image - assuming automatic migration
+echo "Pulling podman image $IMAGE..."
+podman-hpc pull $IMAGE
 
 # Run the Shifter container and copy files
-echo "Running Shifter container and copying files..."
-shifter --image=$IMAGE --volume $TARGET_DIR:/host-home bash -c "cp -rn /opt/notebooks/* /host-home/"
+echo "Running podman container and copying files..."
+podman-hpc run --volume $TARGET_DIR:/host-home bash $IMAGE -c "cp -rn /opt/notebooks/* /host-home/"
+
+
+echo "\n\n---------------------------------------------------------\n\n"
 
 echo "Files have been successfully copied to $TARGET_DIR."
 
+echo "\n\n---------------------------------------------------------\n\n"
+
 # Install Jupyter kernel
-shifter --image=$IMAGE \
+podman-hpc $IMAGE \
     /opt/conda/bin/python -m ipykernel install \
     --prefix $HOME/.local --name env_impact_bmad --display-name Impact_Bmad_Container
 
