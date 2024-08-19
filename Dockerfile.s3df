@@ -50,7 +50,7 @@ RUN /opt/conda/bin/conda install -y \
     /opt/conda/bin/conda clean -afy
 
 # for mason stobbe
-RUN pip install Wake-T=0.8.0
+RUN pip install Wake-T
 # for nathan's files
 RUN pip install bayesian-optimization 
 
