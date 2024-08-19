@@ -16,7 +16,7 @@ total_charge:
 
 xy_dist:
     type: file2d
-    file: 'VCC.jpeg'
+    file: 'VCC_March_2024.jpeg'
     max_x:
         value: 2.808
         units: mm
@@ -48,5 +48,5 @@ t_dist:
     value: 0
   sigma_t:
     units: ps
-    value: 1.17 #0.9341825902335456 #2.2/2.355
+    value: 0.819 #1.17 #0.9341825902335456 #2.2/2.355
   n_sigma_cutoff: 3
