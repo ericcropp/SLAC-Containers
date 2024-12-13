@@ -1,0 +1,244 @@
+######################################################################################
+######################################################################################
+# Official lattice settings, as of 2024-06-28
+# Optionally superseded below
+######################################################################################
+######################################################################################
+
+#These quad settings are from the official lattice, as of 2024-06-28
+#quadNameList=["QA10361", "QA10371", "QA10425", "QA10441", "QA10511", "QA10525"]
+#[(i, getQuadkG(tao,i)) for i in quadNameList]
+QA10361kG :  -2.60267
+QA10371kG :   2.62955
+QE10425kG :  -8.77368
+QE10441kG :   10.2393
+QE10511kG :   5.46642
+QE10525kG :  -4.91438
+
+#These bend settings are from the official lattice, as of 2024-05-20    
+#bendNameList :  ["B1LE", "B2LE", "B3LE", "B3RE", "B2RE", "B1RE"]
+#[(i, getBendkG(tao,i)) for i in bendNameList]
+B1EkG :  7.533
+B2EkG :  -10.942
+B3EkG :  3.409
+
+#These quad settings are from the official lattice, as of 2024-05-20
+#quadNameList :  ["Q1EL", "Q2EL", "Q3EL_1", "Q3EL_2", "Q4EL_1", "Q4EL_2", "Q4EL_3", "Q5EL", "Q6E", "Q5ER", "Q4ER_1", "Q4ER_2", "Q4ER_3", "Q3ER_1", "Q3ER_2", "Q2ER", "Q1ER"]
+#[(i, getBendkG(tao,i)) for i in bendNameList]
+Q1EkG :  161.311
+Q2EkG :  -154.229
+Q3EkG :  110.217
+Q4EkG :  132.268
+Q5EkG :  -23.373
+Q6EkG :  -142.271
+
+#These sextupole settings are from the official lattice, as of 2024-05-20
+#sextNameList :  ["S1EL", "S2EL", "S3EL_1", "S3EL_2", "S3ER_1", "S3ER_2", "S2ER", "S1ER"]
+#[(i, getSextkG(tao,i)) for i in sextNameList]
+S1ELkG :  804.871
+S2ELkG :  -2049.489
+S3ELkG :  -1019.3230 
+S3ERkG :  -1019.3230 
+S2ERkG :  -2049.489 
+S1ERkG :  804.871
+
+#These quad settings are from the official lattice, as of 2024-05-20
+#quadNameList :  ["Q5FF", "Q4FF", "Q3FF", "Q2FF", "Q1FF", "Q0FF", "Q0D", "Q1D", "Q2D"]
+#[(i, getQuadkG(tao,i)) for i in quadNameList]
+Q5FFkG :  -71.837
+Q4FFkG :  -81.251
+Q3FFkG :  99.225
+Q2FFkG :  126.35
+Q1FFkG :  -235.218
+Q0FFkG :  126.353
+Q0DkG :  -109.694
+Q1DkG :  180.862
+Q2DkG :  -109.694
+
+
+######################################################################################
+######################################################################################
+# SCP limits and settings, as of 2024-08-01
+######################################################################################
+######################################################################################
+
+#These are in EPICS, not SCP
+QA10361kGBounds :  (-10.1, 10.2) #BCON = -3.2
+QA10371kGBounds :  (-10.1, 10.1) #BCON = 3.0
+QE10425kGBounds :  (-10.1, 10.1) #BCON = -5.5
+QE10441kGBounds :  (-10.1, 10.1) #BCON = 6.8
+QE10511kGBounds :  (-10.1, 10.1) #BCON = -5.4
+QE10525kGBounds :  (-10.1, 10.1) #BCON = 6.1
+
+#There's a substantial difference between these and the Bmad base lattice
+#I don't change these magnets so I'll ignore for now, but beware
+#B1EkGBounds : (0,25) #BCON = 10.0
+#B2EkGBounds : (0,25) #BCON = 10.0
+#B3EkGBounds : (0,26) #BCON = 10.0
+
+Q1EkGBounds :  (0, 388)  #BCON = 133
+Q2EkGBounds :  (-364, 0) #BCON = -136
+Q3EkGBounds :  (0, 299)  #BCON = 94
+Q4EkGBounds :  (0, 304)  #BCON = 118
+Q5EkGBounds :  (-117, 0) #BCON = -17
+Q6EkGBounds :  (-301, 0) #BCON = -142
+
+S1ELkGBounds : (0,2590)   #BCON = 1400
+S2ELkGBounds : (-21706,0) #BCON = -2850
+S3ELkGBounds : (-2625,0)  #BCON = -1200
+S3ERkGBounds : (-2603,0)  #BCON = -1200
+S2ERkGBounds : (-21638,0) #BCON = -2850
+S1ERkGBounds : (0,2601)   #BCON = 1400
+
+Q5FFkGBounds: (-256, 0)  #BCON = -70
+Q4FFkGBounds: (-446, 0)  #BCON = -71
+Q3FFkGBounds: (0, 457)   #BCON = 106
+Q2FFkGBounds: (0, 167)   #BCON = 112
+Q1FFkGBounds: (-257, 0)  #BCON = -225
+Q0FFkGBounds: (0, 167)   #BCON = 112
+Q0DkGBounds : (-239, 0)  #BCON = -112
+Q1DkGBounds : (0, 386)   #BCON = 177
+Q2DkGBounds : (-223, 0)  #BCON = -112
+
+
+######################################################################################
+######################################################################################
+# Superseding settings
+######################################################################################
+######################################################################################
+
+#L1PhaseSet :  -28.2 #2024-05-17: optimized PENT (sigmaX * sigmaY * sigmaZ) with 2024-02-16_2bunch_1e5Downsample_nudgeWeights_driverOnly_2023-05-16InjectorMatch.h5, otherwise base lattice; no energy offsets
+#L2PhaseSet :  -41.0 #2024-05-17: optimized PENT (sigmaX * sigmaY * sigmaZ) with 2024-02-16_2bunch_1e5Downsample_nudgeWeights_driverOnly_2023-05-16InjectorMatch.h5, otherwise base lattice; no energy offsets
+
+#L1PhaseSet :  -25.4 #2024-05-17: optimized PENT sigmaZ with 2024-02-16_2bunch_1e5Downsample_nudgeWeights_driverOnly_2023-05-16InjectorMatch.h5, otherwise base lattice; no energy offsets
+#L2PhaseSet :  -40.0 #2024-05-17: optimized PENT sigmaZ with 2024-02-16_2bunch_1e5Downsample_nudgeWeights_driverOnly_2023-05-16InjectorMatch.h5, otherwise base lattice; no energy offsets
+
+L1PhaseSet :  -20.0 #2024-06-19: Visual optimization of 2024-02-16_2bunch_1e5Downsample_nudgeWeights.h5 LPS at ENDBC20 "2024-06-19 Phase scan and LPS image dump.ipynb"; no energy offsets
+L2PhaseSet :  -38.0 #2024-06-19: Visual optimization of 2024-02-16_2bunch_1e5Downsample_nudgeWeights.h5 LPS at ENDBC20 "2024-06-19 Phase scan and LPS image dump.ipynb"; no energy offsets
+L2EnergyOffset :  0
+L3EnergyOffset :  0
+
+#2024-07-30-12-48-22 Injector quad settings. Quick optimization but substantial improvement over base lattice
+#With CSR on, at BEGBC20 get witness = 4.0 x 3.1, drive = 4.8 x 4.9 um-rad
+QA10361kG : -2.7552407742
+QA10371kG : 2.7814478298
+QE10425kG : -8.9145981371
+QE10441kG : 9.8806817063
+QE10511kG : 3.7349987997
+QE10525kG : -3.9580562132
+
+
+#2024-07-31-07-21-03, 100 um spacing, with CSR. maximizeMe = 1.0 @ 1e4 particles. Assumes propagateToBEGBC20(centerXYatBEGBC20 = True)
+# L1PhaseSet : -20.1125382826
+# L2PhaseSet : -37.0476725119
+# Q1EkG : 149.7990872354
+# Q2EkG : -168.1878970104
+# Q3EkG : 112.817381373
+# Q4EkG : 126.1447034174
+# Q5EkG : -23.4172810629
+# Q6EkG : -150.9884931687
+# S1ELkG : 1252.3310490228
+# S2ELkG : -3899.5475136039
+# S3ELkG : -4039.6918249695
+# S3ERkG : -416.6879240651
+# S2ERkG : -2946.6733256607
+# S1ERkG : 576.8742456339
+# #2024-08-01-11-24-54 FF optimization
+# Q5FFkG : -121.6634726629
+# Q4FFkG : -2.2038443989
+# Q3FFkG : 58.0423604969
+# Q2FFkG : 132.1908810131
+# Q1FFkG : -221.7193635344
+# Q0FFkG : 75.2374112355
+
+#2024-08-05-13-12-04, 100 um spacing, with CSR. Emittance ignored. Assumes propagateToBEGBC20(centerXYatBEGBC20 = True)
+# L1PhaseSet : -20.2378129508
+# L2PhaseSet : -36.7349458532
+# Q1EkG : 158.2204093036
+# Q2EkG : -167.7753768664
+# Q3EkG : 112.7883589809
+# Q4EkG : 129.7780261129
+# Q5EkG : -25.0425443702
+# Q6EkG : -141.3382488371
+# S1ELkG : 1289.7477302182
+# S2ELkG : -4045.8107143479
+# S3ELkG : -2625.
+# S3ERkG : -434.632863262
+# S2ERkG : -3128.4121024404
+# S1ERkG : 568.5584352972
+
+#2024-07-31-06-56-24, 150 um spacing, with CSR. maximizeMe = 3.4 @ 1e4 particles. Assumes propagateToBEGBC20(centerXYatBEGBC20 = True)
+# L1PhaseSet        :         -1.943169e+01
+# L2PhaseSet        :         -3.754303e+01
+# Q1EkG             :          1.399954e+02
+# Q2EkG             :         -1.525081e+02
+# Q3EkG             :          1.131408e+02
+# Q4EkG             :          1.227592e+02
+# Q5EkG             :         -2.429693e+01
+# Q6EkG             :         -1.332020e+02
+# S1ELkG            :          8.817126e+02
+# S2ELkG            :         -3.729187e+03
+# S3ELkG            :         -1.853048e+03
+# S3ERkG            :         -6.107087e+02
+# S2ERkG            :         -4.036090e+03
+# S1ERkG            :          9.127919e+02
+
+#2024-08-01-09-14-27, 200 um spacing, with CSR. maximizeMe = 2.9 @ 1e4 particles. Assumes propagateToBEGBC20(centerXYatBEGBC20 = True)
+# L1PhaseSet : -19.2902743406
+# L2PhaseSet : -38.0698650591
+# Q1EkG : 140.1421896123
+# Q2EkG : -152.7289712442
+# Q3EkG : 113.4192104886
+# Q4EkG : 121.7290856778
+# Q5EkG : -24.6811906722
+# Q6EkG : -132.9758240155
+# S1ELkG : 885.6963689942
+# S2ELkG : -3771.4516579277
+# S3ELkG : -1864.100273899
+# S3ERkG : -615.8154971837
+# S2ERkG : -4015.7308061393
+# S1ERkG : 919.436633911
+
+#2024-08-01-13-46-14, 250 um spacing, with CSR. maximizeMe = 1.9 @ 1e4 particles. Assumes propagateToBEGBC20(centerXYatBEGBC20 = True)
+# L1PhaseSet : -18.9873139866
+# L2PhaseSet : -38.5421655422
+# Q1EkG : 140.7387267668
+# Q2EkG : -152.4351645403
+# Q3EkG : 113.7965280807
+# Q4EkG : 119.7863706147
+# Q5EkG : -25.5175874648
+# Q6EkG : -134.0982452841
+# S1ELkG : 905.9681579806
+# S2ELkG : -3823.2581971163
+# S3ELkG : -1879.7526205749
+# S3ERkG : -606.7481091011
+# S2ERkG : -3947.6333456056
+# S1ERkG : 942.3926533227
+# #2024-08-01-13-49-44 FF optimization
+# Q5FFkG : -70.4822047863
+# Q4FFkG : -80.3605848173
+# Q3FFkG : 98.7429428288
+# Q2FFkG : 125.9282252203
+# Q1FFkG : -233.3738238642
+# Q0FFkG : 125.378460268
+
+
+
+
+#2024-08-05-13-42-59, 150 um spacing, with CSR. maximizeMe = 3.3 @ 1e4 particles. Assumes propagateToBEGBC20(centerXYatBEGBC20 = False)
+L1PhaseSet : -19.4325476092
+L2PhaseSet : -37.5212677525
+Q1EkG : 133.3959450113
+Q2EkG : -155.437210085
+Q3EkG : 114.2236340922
+Q4EkG : 121.8782579886
+Q5EkG : -22.1599987091
+Q6EkG : -147.3124043404
+S1ELkG : 778.5648122278
+S2ELkG : -4131.7473667339
+S3ELkG : -2058.7055566081
+S3ERkG : -624.9410357792
+S2ERkG : -4538.8242740078
+S1ERkG : 864.3495989792
+
+
