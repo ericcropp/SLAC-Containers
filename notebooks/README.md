@@ -1,4 +1,4 @@
-# BluePill - I just want to simulate FACET-II
+# BluePill - Just get started with FACET-II simulations
 
 Try executing "S3DF demo notebook.ipynb"; this should, using only a few lines, perform and plot an output from a Bmad simulation from a pre-generated lattice and beam file. It will also demonstrate some of the helper functions for changing magnet and linac settings
 
