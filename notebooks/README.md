@@ -1,3 +1,10 @@
+# BluePill - I just want to simulate FACET-II
+
+Try executing "S3DF demo notebook.ipynb"; this should, using only a few lines, perform and plot an output from a Bmad simulation from a pre-generated lattice and beam file. It will also demonstrate some of the helper functions for changing magnet and linac settings
+
+From https://github.com/slaclab/FACET2-Bmad-PyTao
+
+
 # RedPill - See how deep the rabbit hole goes
 This example runs IMPACT-T to L0AFEND and saves the particles in a specified directory.  These particles are read by Bmad and tracked the rest of the way.  A few notes:
 
@@ -8,8 +15,4 @@ This example runs IMPACT-T to L0AFEND and saves the particles in a specified dir
 3)  Outputs from these scripts, including sample handoff beams (L0AFEND.h5) are included for 1.6nC and 2nC with 200k macroparticles. 
 
 
-# BluePill - I just want to simulate FACET-II
 
-Try executing "S3DF demo notebook.ipynb"; this should, using only a few lines, perform and plot an output from a Bmad simulation from a pre-generated lattice and beam file. It will also demonstrate some of the helper functions for changing magnet and linac settings
-
-From https://github.com/slaclab/FACET2-Bmad-PyTao
