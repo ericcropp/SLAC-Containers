@@ -11,3 +11,5 @@ This example runs IMPACT-T to L0AFEND and saves the particles in a specified dir
 # BluePill - I just want to simulate FACET-II
 
 Try executing "S3DF demo notebook.ipynb"; this should, using only a few lines, perform and plot an output from a Bmad simulation from a pre-generated lattice and beam file. It will also demonstrate some of the helper functions for changing magnet and linac settings
+
+From https://github.com/slaclab/FACET2-Bmad-PyTao
